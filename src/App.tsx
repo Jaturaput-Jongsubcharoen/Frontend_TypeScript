@@ -2,32 +2,44 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import axios from 'axios';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const onSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_INDEX_URL}/auth/register`, {
+        email,
+        name,
+        password,
+      });
+      setMessage(`Registered successfully!: ${response.status}`);
+
+    } catch (error: any) {
+      setMessage(`Registered failed: ${error.message}`);
+    }
+
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <form onSubmit={onSubmit}>
+        <br />
+        <input type="text" placeholder='Type your E-mail.' value={email} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)} required/>
+        <br />
+        <input type="text" placeholder='Type your name' value={name} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)} required/>
+        <br />
+        <input type="password" placeholder='Type your password' value={password} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)} required/>
+        <br />
+        <button type='submit'>Register</button>
+      </form> 
+      <br />
+      {message ? <p>{message}</p> : null }
     </>
   )
 }

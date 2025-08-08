@@ -5,7 +5,7 @@ import './App.css'
 import axios from 'axios';
 
 function App() {
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -15,7 +15,7 @@ function App() {
     try {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_INDEX_URL}/auth/register`, {
         email,
-        name,
+        username,
         password,
       });
       setMessage(`Registered successfully!: ${response.status}`);
@@ -32,7 +32,7 @@ function App() {
         <br />
         <input type="text" placeholder='Type your E-mail.' value={email} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)} required/>
         <br />
-        <input type="text" placeholder='Type your name' value={name} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)} required/>
+        <input type="text" placeholder='Type your name' value={username} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUsername(event.target.value)} required/>
         <br />
         <input type="password" placeholder='Type your password' value={password} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)} required/>
         <br />

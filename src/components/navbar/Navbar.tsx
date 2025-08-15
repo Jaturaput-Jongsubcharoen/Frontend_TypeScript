@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
+import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,10 +21,10 @@ const Navbar: React.FC = () => {
         )}
 
         <ul className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
         </ul>
       </div>
     </nav>

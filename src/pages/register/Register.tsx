@@ -1,8 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import Navbar from "../../components/navigator-bar/Nav";
-import { Outlet } from "react-router-dom";
-
 
 function Register() {
     const [username, setUsername] = useState("");
@@ -29,8 +26,6 @@ function Register() {
 
     return (
         <>
-            <Navbar />
-            <Outlet />
             <form onSubmit={onSubmit}>
             <br />
             <input type="text" placeholder='Type your E-mail.' value={email} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)} required/>

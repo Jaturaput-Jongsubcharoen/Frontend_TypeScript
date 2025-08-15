@@ -3,7 +3,9 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm install
+        - export NVM_DIR="$HOME/.nvm"
+        - . "$NVM_DIR/nvm.sh"      
+        - nvm install             
         - nvm use
         - node -v
         - npm ci --include=dev

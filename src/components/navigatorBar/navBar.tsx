@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Navbar.module.css';
+import styles from './Navbar.module.css'; // Fix casing: NavBar.module.css
 import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {

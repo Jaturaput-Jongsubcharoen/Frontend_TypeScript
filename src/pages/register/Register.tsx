@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import Navbar from "../../components/navigatorBar/navBar";
+import Navbar from "../../components/navigatorBar/NavBar";
 import { Outlet } from "react-router-dom";
 
 

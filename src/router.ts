@@ -6,6 +6,8 @@ import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Service from "./pages/services/Service";
+import NotFound from "./pages/notFound/NotFound";
+
 
 const router = createBrowserRouter([
     { path: "/", element: React.createElement(App), children: [
@@ -17,6 +19,7 @@ const router = createBrowserRouter([
     },
     
     { path: "/register", element: React.createElement(Register)},
+    { path: "*" , element: React.createElement(NotFound)}
 ]);
 
 export default router;

@@ -1,26 +1,24 @@
-
 import React, { useState } from 'react';
-import styles from './Navbar.module.css';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.container}>
-        <div className={styles.logo}>MyApp</div>
+    <nav className="navbar">
+      <div className="container">
+        <div className="logo">MyApp</div>
 
         {!isOpen && (
-        <button
-            className={styles.toggleButton}
+          <button
+            className="toggleButton"
             onClick={() => setIsOpen(true)}
             aria-label="Open menu"
-        >
+          >
             ☰
-        </button>
+          </button>
         )}
 
-        <ul className={`${styles.navLinks} ${isOpen ? styles.show : ''}`}>
+        <ul className={`navLinks ${isOpen ? 'show' : ''}`}>
           <li><a href="#">Home</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Services</a></li>

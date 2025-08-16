@@ -12,6 +12,7 @@ const router = createBrowserRouter([
   {
     path: "/", element: React.createElement(App), children: [
         { index: true, element: React.createElement(Home) },
+        { path: "home", element: React.createElement(Home) },
         { path: "about", element: React.createElement(About) },
         { path: "services", element: React.createElement(Service) },
         { path: "contact", element: React.createElement(Contact) },
